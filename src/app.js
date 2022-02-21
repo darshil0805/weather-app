@@ -1,6 +1,9 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+
+const port = process.env.PORT || 3000
+
 const hbs = require('hbs')
 const weather = require('./utils/weather')
 
@@ -78,6 +81,6 @@ app.get('*',(req,res) =>{
     res.render('404',{errorMessage:"Error page not found",name : "Darshil",title: "404"})
 })
 
-app.listen(3000,()=>{
-    console.log("The server is up and running")
+app.listen(port,()=>{
+    console.log("The server is up and running on port "+port)
 })
